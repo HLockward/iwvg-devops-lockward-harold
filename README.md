@@ -5,7 +5,7 @@
 ## Estado del codigo 
 [![DevOps](https://github.com/HLockward/iwvg-devops-lockward-harold/actions/workflows/test-sonar.yml/badge.svg)](https://github.com/HLockward/iwvg-devops-lockward-harold/actions/workflows/test-sonar.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=HLockward_iwvg-devops-lockward-harold&metric=alert_status)](https://sonarcloud.io/dashboard?id=HLockward_iwvg-devops-lockward-harold)
-
+[![BCH compliance](https://bettercodehub.com/edge/badge/HLockward/iwvg-devops-lockward-harold?branch=develop)](https://bettercodehub.com/)
 ### :gear: Instalación del proyecto
 1. Clonar el repositorio en tu equipo, **mediante consola**:
 ```sh
