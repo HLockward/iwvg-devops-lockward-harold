@@ -59,6 +59,68 @@ public class Fraction {
         return (double) numerator / denominator;
     }
 
+    public boolean isProper(){
+        return this.denominator > this.numerator;
+    }
+
+    public boolean isImproper(){
+        return this.denominator < this.numerator;
+    }
+
+    public boolean isEquivalent(Fraction fraction){
+        return ((this.numerator * fraction.getDenominator()) == (this.denominator * fraction.getNumerator()));
+    }
+
+    private void reduce() {
+        // find the larger of the numerator and denominator
+        int n = numerator, d = denominator, largest;
+        if (numerator < 0) {
+            n = -numerator;
+        }
+        if (n > d) {
+            largest = n;
+        }
+        else {
+            largest = d;
+        }
+
+        // find the largest number that divide the numerator and
+        // denominator evenly
+        int gcd = 0;
+        for (int i = largest; i >= 2; i--) {
+            if (numerator % i == 0 && denominator % i == 0) {
+                gcd = i;
+                break;
+            }
+        }
+
+        // divide the largest common denominator out of numerator, denominator
+        if (gcd != 0) {
+            numerator /= gcd;
+            denominator /= gcd;
+        }
+    }
+
+    public Fraction add(Fraction fraction){
+        Fraction sum = new Fraction();
+        sum.denominator = this.denominator * fraction.denominator;
+        sum.numerator = this.numerator * fraction.denominator
+                + this.denominator * fraction.numerator;
+        sum.reduce();
+        return sum;
+    }
+
+    public Fraction multiply(Fraction fraction){
+        return new Fraction(this.getNumerator() * fraction.getNumerator(),
+                this.getDenominator() * fraction.getDenominator());
+    }
+
+    public Fraction divide(Fraction fraction){
+        return new Fraction(this.getNumerator() * fraction.getDenominator(),
+                this.getDenominator() * fraction.getNumerator());
+    }
+
+
     @Override
     public String toString() {
         return "Fraction{" +
